@@ -1,22 +1,22 @@
-#module for variables and grid
+# module for variables and grid
 module GridComponents
-  #player input variables
-  #row 1
+  # player input variables
+  # row 1
   @a1 = " "
   @b1 = " "
   @c1 = " "
   
-  #row 2
+  # row 2
   @a2 = " "
   @b2 = " "
   @c2 = " "
   
-  #row 3
+  # row 3
   @a3 = " "
   @b3 = " "
   @c3 = " "   
   
-  #variables for grid display
+  # variables for grid display
   puts "   A   B   C "
   puts "1  #{@a1} | #{@b1} | #{@c1}  "
   puts "  ---+---+---"
@@ -26,7 +26,7 @@ module GridComponents
   
 end
 
-#class for running the game
+# class for running the game
 class TicTacToe    
   include GridComponents
 
@@ -34,13 +34,14 @@ class TicTacToe
     puts @@grid
   end
 
-  #run game
-  def PlayGame 
-    #create players
+  # run game
+  def play_game 
+    # create players
     player1 = Player.new("X")
     player2 = Player.new("O")
-    #print grid
-    
+    # display  grid
+    display_grid
+    # Ask Player 1
     
   end
 end
