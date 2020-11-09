@@ -31,6 +31,13 @@ module GridComponents
   end
   
 end
+# class for players
+class Player
+  def initialize(name, character)
+    @name = name
+    @character = character
+  end
+end 
 
 # class for running the game
 class TicTacToe    
@@ -39,8 +46,8 @@ class TicTacToe
   # run game
   def play_game 
     # create players
-    player1 = Player.new("X")
-    player2 = Player.new("O")
+    player1 = Player.new("Player 1", "X")
+    player2 = Player.new("Player 2", "O")
     # display  grid
     display_grid
     # Ask Player 1
