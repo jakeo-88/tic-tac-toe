@@ -57,7 +57,11 @@ class TicTacToe
     player1_choice = "A1"
     # check if entry is a possible one
     possible_entries = ["A1", "B1", "C1", "A2", "B2", "C2", "A3", "B3", "C3"]
-    possible_entries.include?(player1_choice)
+    #loop until correct answer is given
+    until possible_entries.include?(player1_choice) do
+      puts "Not a valid answer. Select a square, ex. B3"
+      player1_choice = gets.chomp
+    end
     # check if entry listed is taken
     case player1_choice
     when "A1"
