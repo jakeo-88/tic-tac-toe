@@ -29,7 +29,11 @@ end
 #class for running the game
 class TicTacToe    
   include GridComponents
-  
+
+  def display_grid
+    puts @@grid
+  end
+
   #run game
   def PlayGame 
     #create players
