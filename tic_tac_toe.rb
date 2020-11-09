@@ -25,7 +25,11 @@
         puts "  ---+---+---"
         puts "3  #{a3} | #{b3} | #{c3}  "
     #player class
-
+    class Player
+      def initialize(character)
+        @character = @character
+      end
+    end
     #end game conditions
     
     #game sequence class
