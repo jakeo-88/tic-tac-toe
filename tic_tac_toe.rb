@@ -54,6 +54,16 @@ class TicTacToe
     display_grid
     # Ask Player 1
     puts "Player 1's turn. Select a square, ex. A1"
-    player1_choice = gets.chomp.upcase!
+    player1_choice = "A1"
+    # check if entry is a possible one
+    possible_entries = ["A1", "B1", "C1", "A2", "B2", "C2", "A3", "B3", "C3"]
+    possible_entries.include?(player1_choice)
+    # check if entry listed is taken
+    case player1_choice
+    when "A1"
+      @a1 = "X"
+    end
+    # display grid
+    puts display_grid
   end
 end
