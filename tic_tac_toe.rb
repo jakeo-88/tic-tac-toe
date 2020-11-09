@@ -1,5 +1,5 @@
 #module for variables and grid
-module Grid
+module GridComponents
   #player input variables
   #row 1
   @a1 = " "
@@ -28,10 +28,8 @@ end
 
 #class for running the game
 class TicTacToe    
+  include GridComponents
   
-        
-
-  end
   #run game
   def PlayGame 
     #create players
