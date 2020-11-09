@@ -48,9 +48,12 @@ class TicTacToe
     # create players
     player1 = Player.new("Player 1", "X")
     player2 = Player.new("Player 2", "O")
+    # create grid
+    column_row(" ", " ", " ", " ", " ", " ", " ", " ", " ")
     # display  grid
     display_grid
     # Ask Player 1
-    
+    puts "Player 1's turn. Select a square, ex. A1"
+    player1_choice = gets.chomp.upcase!
   end
 end
