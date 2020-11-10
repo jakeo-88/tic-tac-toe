@@ -33,6 +33,8 @@ module GridComponents
 end
 # class for players
 class Player
+  attr_reader :name, :character
+  
   def initialize(name, character)
     @name = name
     @character = character
@@ -47,6 +49,7 @@ class TicTacToe
   def game_start
     # create grid
     column_row(" ", " ", " ", " ", " ", " ", " ", " ", " ") 
+    
     # display grid
     puts display_grid
   end
@@ -95,6 +98,7 @@ class TicTacToe
   def player2_round
     # create Player 2
     player2 = Player.new("Player 2", "O")
+
     # Ask Player 2 for space
     puts "#{player2.name}'s turn. Select a square, ex. B3"
     player2_choice = gets.chomp
@@ -105,7 +109,7 @@ class TicTacToe
       puts "Not a valid answer. Select a square, ex. B3"
       player2_choice = gets.chomp
     end
-    possible_entries.include?(player1_choice)
+    possible_entries.include?(player2_choice)
     # check if entry listed is taken
     case player2_choice
     when "A1"
@@ -172,5 +176,22 @@ class TicTacToe
       puts "It's a tie!"
     else
     end
+  end
+  def play_game
+    game_start
+    player1_round
+    player2_round
+    player1_round
+    player2_round
+    player1_round
+    end_game
+    player2_round
+    end_game
+    player1_round
+    end_game
+    player2_round
+    end_game
+    player1_round
+    end_game
   end
 end
