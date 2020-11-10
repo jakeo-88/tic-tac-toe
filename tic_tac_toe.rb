@@ -52,10 +52,9 @@ class TicTacToe
   end
   
   # run game
-  def play_game 
-    # create players
+  def player1_round
+    # create Player 1
     player1 = Player.new("Player 1", "X")
-    player2 = Player.new("Player 2", "O")
     
     # Ask Player 1
     puts "#{player1.name}'s turn. Select a square, ex. A1"
@@ -91,7 +90,11 @@ class TicTacToe
     
     # display grid
     puts display_grid
+  end
 
+  def player2_round
+    # create Player 2
+    player2 = Player.new("Player 2", "O")
     # Ask Player 2 for space
     puts "#{player2.name}'s turn. Select a square, ex. B3"
     player2_choice = gets.chomp
@@ -141,9 +144,9 @@ class TicTacToe
       
     # columns for Player 2
     when @a1 == "O" && @a2 == "O" && @a3 == "O" 
-      puts "That's game! Player 1 wins."
+      puts "That's game! Player 2 wins."
     when @b1 == "O" && @b2 == "O" && @b3 == "O" 
-      puts "That's game! Player 1 wins."
+      puts "That's game! Player 2 wins."
     when @c1 == "O" && @c2 == "O" && @c3 == "O" 
       puts "That's game! Player 2 wins."
     
@@ -157,12 +160,16 @@ class TicTacToe
     
     # rows for Player 2
     when @a1 == "O" && @b1 == "O" && @c1 == "O" 
-      puts "That's game! Player 1 wins."
+      puts "That's game! Player 2 wins."
     when @a2 == "O" && @b2 == "O" && @c2 == "O" 
-      puts "That's game! Player 1 wins."
+      puts "That's game! Player 2 wins."
     when @a3 == "O" && @b3 == "O" && @c3 == "O" 
       puts "That's game! Player 2 wins."
-    
+    # tie case 
+    when @a1 != " " && @a2 != " " && @a3 != " " &&
+         @b1 != " " && @b2 != " " && @b3 != " " &&
+         @c1 != " " && @c2 != " " && @c3 != " " 
+      puts "It's a tie!"
     else
     end
   end
