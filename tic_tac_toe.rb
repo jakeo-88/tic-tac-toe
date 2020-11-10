@@ -127,4 +127,43 @@ class TicTacToe
     
     puts display_grid
   end
+  
+  #Method to declare a winner
+  def end_game
+    case 
+    # columns for Player 1
+    when @a1 == "X" && @a2 == "X" && @a3 == "X" 
+      puts "That's game! Player 1 wins."
+    when @b1 == "X" && @b2 == "X" && @b3 == "X" 
+      puts "That's game! Player 1 wins."
+    when @c1 == "X" && @c2 == "X" && @c3 == "X" 
+      puts "That's game! Player 1 wins."
+      
+    # columns for Player 2
+    when @a1 == "O" && @a2 == "O" && @a3 == "O" 
+      puts "That's game! Player 1 wins."
+    when @b1 == "O" && @b2 == "O" && @b3 == "O" 
+      puts "That's game! Player 1 wins."
+    when @c1 == "O" && @c2 == "O" && @c3 == "O" 
+      puts "That's game! Player 2 wins."
+    
+    # rows for Player 1
+    when @a1 == "X" && @b1 == "X" && @c1 == "X" 
+      puts "That's game! Player 1 wins."
+    when @a2 == "X" && @b2 == "X" && @c2 == "X" 
+      puts "That's game! Player 1 wins."
+    when @a3 == "X" && @b3 == "X" && @c3 == "X" 
+      puts "That's game! Player 1 wins."
+    
+    # rows for Player 2
+    when @a1 == "O" && @b1 == "O" && @c1 == "O" 
+      puts "That's game! Player 1 wins."
+    when @a2 == "O" && @b2 == "O" && @c2 == "O" 
+      puts "That's game! Player 1 wins."
+    when @a3 == "O" && @b3 == "O" && @c3 == "O" 
+      puts "That's game! Player 2 wins."
+    
+    else
+    end
+  end
 end
