@@ -169,6 +169,19 @@ class TicTacToe
       puts "That's game! Player 2 wins."
     when @a3 == "O" && @b3 == "O" && @c3 == "O" 
       puts "That's game! Player 2 wins."
+
+    # diagonals for Player 1
+    when @a1 == "X" && @b2 == "X" && @c3 == "X" 
+      puts "That's game! Player 1 wins."
+    when @a3 == "X" && @b2 == "X" && @c1 == "X" 
+      puts "That's game! Player 1 wins."
+      
+    # diagonals for Player 2
+    when @a1 == "O" && @b2 == "O" && @c3 == "O" 
+      puts "That's game! Player 2 wins."
+    when @a3 == "O" && @b2 == "O" && @c1 == "O" 
+      puts "That's game! Player 2 wins."
+
     # tie case 
     when @a1 != " " && @a2 != " " && @a3 != " " &&
          @b1 != " " && @b2 != " " && @b3 != " " &&
