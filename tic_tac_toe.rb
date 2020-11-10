@@ -62,12 +62,27 @@ class TicTacToe
     # Ask Player 1
     puts "#{player1.name}'s turn. Select a square, ex. A1"
     player1_choice = gets.chomp
-    # possible entries
+
+    # Used to for test valid selection 
+    test_array = player1_choice.split(" ")
+
+    # Possible entries
     possible_entries = ["A1", "B1", "C1", "A2", "B2", "C2", "A3", "B3", "C3"]
-    # loop until correct answer is given
-    until possible_entries.include?(player1_choice) do
-      puts "Not a valid answer. Select a square, ex. B3"
+    
+    # Second check -- see if their choice is taken
+    value_check = [@a1, @b1, @c1, @a2, @b2, @c2, @a3, @b3, @c3]
+    
+    # Compare the two
+    test_element = possible_entries.index {|i| test_array.include?(i) }
+
+    # Loop until correct answer is given
+    until ( ( possible_entries.include?(player1_choice) ) &&
+            ( value_check[test_element] == " " ) &&
+            ( test_element != nil) ) do
+      puts "Not a valid answer. Select an unused square, ex. B3"
       player1_choice = gets.chomp
+      test_array = player1_choice.split(" ")
+      test_element = possible_entries.index {|i| test_array.include?(i) }
     end
     
     case player1_choice
@@ -102,12 +117,27 @@ class TicTacToe
     # Ask Player 2 for space
     puts "#{player2.name}'s turn. Select a square, ex. B3"
     player2_choice = gets.chomp
+    
+    # Used to for test valid selection 
+    test_array = player2_choice.split(" ")
+    
     # check if entry is a possible one
     possible_entries = ["A1", "B1", "C1", "A2", "B2", "C2", "A3", "B3", "C3"]
+    
+    # Second check -- see if their choice is taken
+     value_check = [@a1, @b1, @c1, @a2, @b2, @c2, @a3, @b3, @c3]
+    
+    # Compare the two
+     test_element = possible_entries.index {|i| test_array.include?(i) }
+
     #loop until correct answer is given
-    until possible_entries.include?(player2_choice) do
+    until ( ( possible_entries.include?(player2_choice) ) &&
+            ( value_check[test_element] == " " ) &&
+            ( test_element != nil) ) do
       puts "Not a valid answer. Select a square, ex. B3"
       player2_choice = gets.chomp
+      test_array = player2_choice.split(" ")
+      test_element = possible_entries.index {|i| test_array.include?(i) }
     end
     possible_entries.include?(player2_choice)
     # check if entry listed is taken
