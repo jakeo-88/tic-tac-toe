@@ -134,7 +134,7 @@ class TicTacToe
     until ( ( possible_entries.include?(player2_choice) ) &&
             ( value_check[test_element] == " " ) &&
             ( test_element != nil) ) do
-      puts "Not a valid answer. Select a square, ex. B3"
+      puts "Not a valid answer. Select an unused square, ex. B3"
       player2_choice = gets.chomp
       test_array = player2_choice.split(" ")
       test_element = possible_entries.index {|i| test_array.include?(i) }
@@ -167,50 +167,69 @@ class TicTacToe
   
   #Method to declare a winner
   def end_game
+    
+    @end_var = "false"
+    
     case 
     # columns for Player 1
     when @a1 == "X" && @a2 == "X" && @a3 == "X" 
       puts "That's game! Player 1 wins."
+      return @end_var = "true"
     when @b1 == "X" && @b2 == "X" && @b3 == "X" 
       puts "That's game! Player 1 wins."
+      return @end_var = "true"
     when @c1 == "X" && @c2 == "X" && @c3 == "X" 
       puts "That's game! Player 1 wins."
+      return @end_var = "true"
       
     # columns for Player 2
     when @a1 == "O" && @a2 == "O" && @a3 == "O" 
       puts "That's game! Player 2 wins."
+      return @end_var = "true"
     when @b1 == "O" && @b2 == "O" && @b3 == "O" 
       puts "That's game! Player 2 wins."
+      return @end_var = "true"
     when @c1 == "O" && @c2 == "O" && @c3 == "O" 
       puts "That's game! Player 2 wins."
+      return @end_var = "true"
     
     # rows for Player 1
     when @a1 == "X" && @b1 == "X" && @c1 == "X" 
       puts "That's game! Player 1 wins."
+      return @end_var = "true"
     when @a2 == "X" && @b2 == "X" && @c2 == "X" 
       puts "That's game! Player 1 wins."
+      return @end_var = "true"
     when @a3 == "X" && @b3 == "X" && @c3 == "X" 
       puts "That's game! Player 1 wins."
+      return @end_var = "true"
     
     # rows for Player 2
     when @a1 == "O" && @b1 == "O" && @c1 == "O" 
       puts "That's game! Player 2 wins."
+      return @end_var = "true"
     when @a2 == "O" && @b2 == "O" && @c2 == "O" 
       puts "That's game! Player 2 wins."
+      return @end_var = "true"
     when @a3 == "O" && @b3 == "O" && @c3 == "O" 
       puts "That's game! Player 2 wins."
+      return @end_var = "true"
 
     # diagonals for Player 1
     when @a1 == "X" && @b2 == "X" && @c3 == "X" 
       puts "That's game! Player 1 wins."
+      return @end_var = "true"
     when @a3 == "X" && @b2 == "X" && @c1 == "X" 
       puts "That's game! Player 1 wins."
+      return @end_var = "true"
       
     # diagonals for Player 2
     when @a1 == "O" && @b2 == "O" && @c3 == "O" 
       puts "That's game! Player 2 wins."
+      return @end_var = "true"
     when @a3 == "O" && @b2 == "O" && @c1 == "O" 
       puts "That's game! Player 2 wins."
+      return @end_var = "true"
 
     # tie case 
     when @a1 != " " && @a2 != " " && @a3 != " " &&
@@ -226,15 +245,17 @@ class TicTacToe
     player2_round
     player1_round
     player2_round
-    player1_round
-    end_game
-    player2_round
-    end_game
-    player1_round
-    end_game
-    player2_round
-    end_game
-    player1_round
-    end_game
+    
+    i = 5 
+    while i < 10 do
+        if i.odd? 
+          player1_round
+        else 
+          player2_round
+        end
+        end_game
+        break if @end_var == "true"
+        i += 1
+    end
   end
 end
