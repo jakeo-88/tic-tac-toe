@@ -43,29 +43,50 @@ end
 class TicTacToe    
   include GridComponents
 
+  #start-up
+  def game_start
+    # create grid
+    column_row(" ", " ", " ", " ", " ", " ", " ", " ", " ") 
+    # display grid
+    puts display_grid
+  end
+  
   # run game
   def play_game 
     # create players
     player1 = Player.new("Player 1", "X")
     player2 = Player.new("Player 2", "O")
-    # create grid
-    column_row(" ", " ", " ", " ", " ", " ", " ", " ", " ")
-    # display  grid
-    display_grid
+    
     # Ask Player 1
-    puts "Player 1's turn. Select a square, ex. A1"
-    player1_choice = "A1"
-    # check if entry is a possible one
+    puts "#{player1.name}'s turn. Select a square, ex. A1"
+    player1_choice = gets.chomp
+    # possible entries
     possible_entries = ["A1", "B1", "C1", "A2", "B2", "C2", "A3", "B3", "C3"]
-    #loop until correct answer is given
+    # loop until correct answer is given
     until possible_entries.include?(player1_choice) do
       puts "Not a valid answer. Select a square, ex. B3"
       player1_choice = gets.chomp
     end
-    # check if entry listed is taken
+    
     case player1_choice
     when "A1"
-      @a1 = "X"
+      @a1 = player1.character
+    when "B1"
+      @b1 = player1.character    
+    when "C1"
+      @c1 = player1.character
+    when "A2"
+      @a2 = player1.character
+    when "B2"
+      @b2 = player1.character    
+    when "C2"
+      @c2 = player1.character    
+    when "A3"
+      @a3 = player1.character
+    when "B3"
+      @b3 = player1.character    
+    when "C3"
+      @c3 = player1.character
     end
     # display grid
     puts display_grid
