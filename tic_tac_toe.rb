@@ -88,7 +88,43 @@ class TicTacToe
     when "C3"
       @c3 = player1.character
     end
+    
     # display grid
+    puts display_grid
+
+    # Ask Player 2 for space
+    puts "#{player2.name}'s turn. Select a square, ex. B3"
+    player2_choice = gets.chomp
+    # check if entry is a possible one
+    possible_entries = ["A1", "B1", "C1", "A2", "B2", "C2", "A3", "B3", "C3"]
+    #loop until correct answer is given
+    until possible_entries.include?(player2_choice) do
+      puts "Not a valid answer. Select a square, ex. B3"
+      player2_choice = gets.chomp
+    end
+    possible_entries.include?(player1_choice)
+    # check if entry listed is taken
+    case player2_choice
+    when "A1"
+      @a1 = player2.character
+    when "B1"
+      @b1 = player2.character    
+    when "C1"
+      @c1 = player2.character
+    when "A2"
+      @a2 = player2.character
+    when "B2"
+      @b2 = player2.character    
+    when "C2"
+      @c2 = player2.character    
+    when "A3"
+      @a3 = player2.character
+    when "B3"
+      @b3 = player2.character    
+    when "C3"
+      @c3 = player2.character
+    end
+    
     puts display_grid
   end
 end
